@@ -2,6 +2,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
+
 /* 
 
   //Given this problem: 
@@ -9,6 +10,7 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   function firstItem(arr, cb) {
     // firstItem passes the first item of the given array to the callback function.
   }
+
 
   // Potential Solution:
 
@@ -25,17 +27,35 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 */
 
 
-function getLength(arr, cb) {
+function getLength(arr, cb)  //higher order function - giveaway cd or callback  as a parameter //
+
   // getLength passes the length of the array into the callback.
+
+
+
+function last(arr, cb) {  // higher order function 
+ return cb(arr);
+
+}
+const lastone = function (arr){  //This is the callback function 
+  console.log(items.length-1);
 }
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-}
+console.log(last(items, lastone)); // This is the invocation - this is actually calling the function 
 
-function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-}
+
+
+
+
+
+// function sumNums(x, y, cb) {
+//   return cb(x,y)
+// }
+// const add = function (x,y) {
+//   return x+y;
+// }
+//  console.log  SumNums(1,1 add));
+
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
