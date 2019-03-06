@@ -27,9 +27,14 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 */
 
 
-function getLength(arr, cb)  //higher order function - giveaway cd or callback  as a parameter //
+function getLength(arr, cb) {  //higher order function - giveaway cd or callback  as a parameter //
+  console.log(cb(arr));
+}
+let arrayLength = function(items) {
+  return items.length;
+}
 
-  // getLength passes the length of the array into the callback.
+getLength(items,arrayLength);
 
 
 
@@ -37,8 +42,8 @@ function last(arr, cb) {  // higher order function
  return cb(arr);
 
 }
-const lastone = function (arr){  //This is the callback function 
-  console.log(items.length-1);
+const last = function (arr){  //This is the callback function 
+  return (arr)[arr.length-1];
 }
 
 console.log(last(items, lastone)); // This is the invocation - this is actually calling the function 
@@ -48,22 +53,52 @@ console.log(last(items, lastone)); // This is the invocation - this is actually 
 
 
 
-// function sumNums(x, y, cb) {
-//   return cb(x,y)
-// }
-// const add = function (x,y) {
-//   return x+y;
-// }
-//  console.log  SumNums(1,1 add));
-
-
-function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+function sumNums(x, y, cb) { // higher order function
+  return cb(x,y);
 }
+
+const add = function (x,y) { //This is the callback function 
+  cb(x + y);
+}
+
+ console.log(SumNums( [1,1,add]); //This is the invocation - calling the function 
+
+//NEXT//
+
+
+function multiplyNums(x,y,cb); { // higher order function
+  return cb(x,y);
+
+}
+
+const times = function (x,y); { //call back function 
+ 
+}
+console.log (x*y);
+multiplyNums (5,5, times);
+
+//NEXT//
+
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === item) {
+      return cb(true);
+    }
+  }
+  return cb(false);
+}
+
+contains('Bats', items, function(flag) {
+  console.log(flag); // should be false
+});
+
+contains('Notebook', items, function(flag) {
+  console.log(flag); // should be true
+});
+
 }
 
 /* STRETCH PROBLEM */
